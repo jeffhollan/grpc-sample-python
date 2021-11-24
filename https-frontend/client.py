@@ -25,7 +25,7 @@ greeter = greet_pb2_grpc.GreeterStub(channel)
 @app.route('/hello', methods=['GET'])
 def getOrder():
     helloRequest = greet_pb2.HelloRequest(name='Azure Container Apps')
-    response = greeter.SayHello(helloRequest)
+    response = greeter.SayHello(helloRequest, timeout=15)
     return response.message
 
 app.run(host='0.0.0.0', port=os.getenv('PORT', '8050'))
