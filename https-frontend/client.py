@@ -18,7 +18,7 @@ CORS(app)
 
 # initialize the gRPC channel
 addr = os.getenv('GRPC_SERVER_ADDRESS', 'localhost:50051')
-creds = grpc.ssl_channel_credentials(open('/etc/ssl/certs/ca-certificates.crt').read())
+creds = grpc.ssl_channel_credentials()
 channel = grpc.secure_channel(addr, creds)
 greeter = greet_pb2_grpc.GreeterStub(channel)
 
