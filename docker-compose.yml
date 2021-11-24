@@ -1,7 +1,7 @@
 version: '3'
 services:
   frontend:
-    image: ghcr.io/jeffhollan/grpc-sample-go/https-frontend:${TAG}
+    image: ghcr.io/jeffhollan/grpc-sample-python/https-frontend:${TAG}
     platform: linux/amd64
     build:
       context: ./
@@ -11,7 +11,7 @@ services:
     environment:
       - GRPC_SERVER_ADDRESS
   backend:
-    image: ghcr.io/jeffhollan/grpc-sample-go/grpc-backend:${TAG}
+    image: ghcr.io/jeffhollan/grpc-sample-python/grpc-backend:${TAG}
     platform: linux/amd64
     build:
       context: ./
