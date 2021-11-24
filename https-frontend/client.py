@@ -17,12 +17,12 @@ app = flask.Flask(__name__)
 CORS(app)
 
 # initialize the gRPC channel
-channel = grpc.insecure_channel('localhost:50051')
+addr = os.getenv('GRPC_SERVER_ADDRESS', 'localhost:50051')
+channel = grpc.insecure_channel(addr)
 greeter = greet_pb2_grpc.GreeterStub(channel)
 
 @app.route('/hello', methods=['GET'])
 def getOrder():
-    app.logger.info('order service called')
     helloRequest = greet_pb2.HelloRequest(name='Azure Container Apps')
     response = greeter.SayHello(helloRequest)
     return response.message
