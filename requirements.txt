@@ -1,2 +1,4 @@
 grpcio
 protobuf
+flask 
+flask_cors 
