@@ -1,0 +1,20 @@
+version: '3'
+services:
+  frontend:
+    image: ghcr.io/jeffhollan/grpc-sample-go/https-frontend:${TAG}
+    platform: linux/amd64
+    build:
+      context: ./
+      dockerfile: ./https-frontend/Dockerfile
+    ports:
+      - 8080:8050
+    environment:
+      - GRPC_SERVER_ADDRESS
+  backend:
+    image: ghcr.io/jeffhollan/grpc-sample-go/grpc-backend:${TAG}
+    platform: linux/amd64
+    build:
+      context: ./
+      dockerfile: ./grpc-backend/Dockerfile
+    ports:
+      - 8090:50051
