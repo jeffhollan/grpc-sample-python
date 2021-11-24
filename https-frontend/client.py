@@ -23,7 +23,7 @@ channel = grpc.secure_channel(addr, creds)
 greeter = greet_pb2_grpc.GreeterStub(channel)
 
 @app.route('/hello', methods=['GET'])
-def getOrder():
+def getHello():
     helloRequest = greet_pb2.HelloRequest(name='Azure Container Apps')
     response = greeter.SayHello(helloRequest, timeout=15)
     return response.message
