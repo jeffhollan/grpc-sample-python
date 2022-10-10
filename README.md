@@ -60,10 +60,10 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --environment $ACA_ENVIRONMENT \
   --image ghcr.io/jeffhollan/grpc-sample-python/https-frontend:main \
-  --environment-variables GRPC_SERVER_ADDRESS=$GRPC_SERVER_ADDRESS':443',GRPC_DNS_RESOLVER=native \
+  --env-vars GRPC_SERVER_ADDRESS=$GRPC_SERVER_ADDRESS':443',GRPC_DNS_RESOLVER=native \
   --target-port 8050 \
   --ingress 'external' \
-  --query configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn
 ```
 
 ### Try the solution
