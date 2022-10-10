@@ -52,7 +52,7 @@ az containerapp create \
 GRPC_SERVER_ADDRESS=$(az containerapp show \
   --resource-group $RESOURCE_GROUP \
   --name grpc-backend \
-  --query configuration.ingress.fqdn -otsv)
+  --query properties.configuration.ingress.fqdn -otsv)
 
 # Create the HTTPS frontend gRPC client container
 az containerapp create \
