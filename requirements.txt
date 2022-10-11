@@ -1,4 +1,4 @@
 grpcio
-protobuf
+protobuf==3.20.0
 flask 
 flask_cors 
